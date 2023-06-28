@@ -1,25 +1,25 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Home.css';
+import { getMovies } from "../utils/movies";
+import Card from "../components/card";
+import { Link } from "react-router-dom";
+import "./Home.css";
+import Nav from "../components/nav";
 
-const Home: React.FC = () => {
+// 5 movies by default
+function Pelis({ qty = 5 }) {
+  const movies = getMovies();
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Blank</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
-      </IonContent>
-    </IonPage>
+    <>
+      <Nav></Nav>
+      <div id="pelis">
+        {movies?.length > 0 &&
+          movies.slice(0, qty).map((movie) => (
+            <Link key={movie.id} to={`/movies/${movie.id}`}>
+              <Card movie={movie}></Card>
+            </Link>
+          ))}
+      </div>
+    </>
   );
-};
+}
 
-export default Home;
+export default Pelis;

@@ -1,0 +1,9 @@
+#pelis {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
