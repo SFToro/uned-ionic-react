@@ -1,23 +1,31 @@
 import { getMovies } from "../utils/movies";
 import Card from "../components/card";
-import { Link } from "react-router-dom";
-import "./Home.css";
+import Menu from "../components/menu";
 import Nav from "../components/nav";
+
+import { Link } from "react-router-dom";
+import styles from "./Home.module.css";
+import { IonContent, IonPage } from "@ionic/react";
 
 // 5 movies by default
 function Pelis({ qty = 5 }) {
   const movies = getMovies();
   return (
     <>
-      <Nav></Nav>
-      <div id="pelis">
-        {movies?.length > 0 &&
-          movies.slice(0, qty).map((movie) => (
-            <Link key={movie.id} to={`/movies/${movie.id}`}>
-              <Card movie={movie}></Card>
-            </Link>
-          ))}
-      </div>
+      <Menu />
+      <IonPage id="main-content">
+        <Nav />
+        <IonContent className="ion-padding">
+          <div className={styles.pelis}>
+            {movies?.length > 0 &&
+              movies.slice(0, qty).map((movie) => (
+                <Link key={movie.id} to={`/movies/${movie.id}`}>
+                  <Card movie={movie} showOverview></Card>
+                </Link>
+              ))}
+          </div>
+        </IonContent>
+      </IonPage>
     </>
   );
 }
