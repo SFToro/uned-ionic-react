@@ -8,7 +8,13 @@ import {
 } from "@ionic/react";
 import "./card.css";
 
-export default function MediaCard({ movie }: { movie: Movie }) {
+export default function MediaCard({
+  movie,
+  showOverview = false,
+}: {
+  movie: Movie;
+  showOverview?: boolean;
+}) {
   return (
     <IonCard>
       <img
@@ -20,9 +26,11 @@ export default function MediaCard({ movie }: { movie: Movie }) {
         <IonCardSubtitle>{`${movie.vote_average}`}</IonCardSubtitle>
       </IonCardHeader>
 
-      <IonCardContent>
-        <p>{movie.overview}</p>
-      </IonCardContent>
+      {showOverview && (
+        <IonCardContent>
+          <p>{movie.overview}</p>
+        </IonCardContent>
+      )}
     </IonCard>
   );
 }
