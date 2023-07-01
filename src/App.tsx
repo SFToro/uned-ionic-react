@@ -1,6 +1,12 @@
 import { Route } from "react-router-dom";
-import { IonApp, IonRouterOutlet, setupIonicReact } from "@ionic/react";
+import {
+  IonApp,
+  IonContent,
+  IonRouterOutlet,
+  setupIonicReact,
+} from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
+import Nav from "./components/nav";
 import Movie from "./pages/Movie";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -27,15 +33,16 @@ import "./theme/variables.css";
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
+  <IonReactRouter>
+    <IonApp>
+      <Nav />
       <IonRouterOutlet>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
         <Route exact path="/movies/:id" component={Movie} />
       </IonRouterOutlet>
-    </IonReactRouter>
-  </IonApp>
+    </IonApp>
+  </IonReactRouter>
 );
 
 export default App;

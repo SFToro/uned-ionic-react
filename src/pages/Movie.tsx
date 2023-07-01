@@ -1,6 +1,5 @@
 import Card from "../components/card";
 import Menu from "../components/menu";
-import Nav from "../components/nav";
 
 import { getMovie } from "../utils/movies";
 import { RouteComponentProps } from "react-router-dom";
@@ -18,8 +17,6 @@ const Movie: React.FC<Movie> = function ({ match }) {
     <>
       <Menu></Menu>
       <IonPage id="main-content">
-        <Nav></Nav>
-
         <IonContent className="ion-padding">
           {movie && (
             <>
