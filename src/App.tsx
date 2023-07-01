@@ -36,11 +36,13 @@ const App: React.FC = () => (
   <IonReactRouter>
     <IonApp>
       <Nav />
-      <IonRouterOutlet>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/movies/:id" component={Movie} />
-      </IonRouterOutlet>
+      <IonContent className="ion-padding">
+        <IonRouterOutlet>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/movies/:id" component={Movie} />
+        </IonRouterOutlet>
+      </IonContent>
     </IonApp>
   </IonReactRouter>
 );
