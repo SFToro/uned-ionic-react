@@ -13,16 +13,14 @@ function Pelis({ qty = 5 }) {
     <>
       <Menu />
       <IonPage id="main-content">
-        <IonContent className="ion-padding">
-          <div className={styles.pelis}>
-            {movies?.length > 0 &&
-              movies.slice(0, qty).map((movie) => (
-                <Link key={movie.id} to={`/movies/${movie.id}`}>
-                  <Card movie={movie} showOverview></Card>
-                </Link>
-              ))}
-          </div>
-        </IonContent>
+        <div className={styles.pelis}>
+          {movies?.length > 0 &&
+            movies.slice(0, qty).map((movie) => (
+              <Link key={movie.id} to={`/movies/${movie.id}`}>
+                <Card movie={movie} showOverview></Card>
+              </Link>
+            ))}
+        </div>
       </IonPage>
     </>
   );

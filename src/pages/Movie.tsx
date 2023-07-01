@@ -17,18 +17,16 @@ const Movie: React.FC<Movie> = function ({ match }) {
     <>
       <Menu></Menu>
       <IonPage id="main-content">
-        <IonContent className="ion-padding">
-          {movie && (
-            <>
-              <div className={styles.mx}>
-                <Card movie={movie} showOverview={false}></Card>
-                <p className={`${styles.prose} ion-margin`}>
-                  <IonText color="warning">{movie.overview}</IonText>
-                </p>
-              </div>
-            </>
-          )}
-        </IonContent>
+        {movie && (
+          <>
+            <div className={styles.mx}>
+              <Card movie={movie} showOverview={false}></Card>
+              <p className={`${styles.prose} ion-margin`}>
+                <IonText color="warning">{movie.overview}</IonText>
+              </p>
+            </div>
+          </>
+        )}
       </IonPage>
     </>
   );
